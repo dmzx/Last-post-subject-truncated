@@ -1,0 +1,31 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_LASTPOSTSUBJECTTRUNCATED_TITLE') }}</h1>
+
+<p><img src="https://img.shields.io/badge/{{ lang('Version') }}-{{ DMZX_LASTPOSTSUBJECTTRUNCATED_VERSION }}-green.svg?style=plastic" /></p>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<form id="dmzx_lastpostsubjecttruncated_acp" name="dmzx_lastpostsubjecttruncated_acp" method="post" action="{{ U_ACTION }}">
+
+	<fieldset>
+		<legend>{{ lang('SETTINGS') }}</legend>
+		<dl>
+			<dt><label>{{ lang('ACP_LASTPOSTSUBJECTTRUNCATED_VALUE') }}{{ lang('COLON') }}</label><br><span>{{ lang('ACP_LASTPOSTSUBJECTTRUNCATED_VALUE_EXPLAIN') }}</span></dt>
+			<dd><input type="number" name="dmzx_lastpostsubjecttruncated_value" size="3" maxlength="3" min="3" max="30" value="{{ DMZX_LASTPOSTSUBJECTTRUNCATED_VALUE }}" /></dd>
+		</dl>
+	</fieldset>
+
+	<fieldset class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+
+</form>
+
+{% include 'overall_footer.html' %}

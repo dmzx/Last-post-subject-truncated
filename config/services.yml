@@ -1,0 +1,18 @@
+services:
+    dmzx.lastpostsubjecttruncated.controller.acp:
+        class: 'dmzx\lastpostsubjecttruncated\controller\acp_controller'
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    dmzx.lastpostsubjecttruncated.listener:
+        class: 'dmzx\lastpostsubjecttruncated\event\main_listener'
+        arguments:
+            - '@user'
+            - '@config'
+        tags:
+            - { name: 'event.listener' }
